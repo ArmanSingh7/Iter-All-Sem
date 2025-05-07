@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .game-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .score {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .result {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <div class="game-container">
+    <div class="score">Score: <span id="user-score">0</span> - <span id="computer-score">0</span></div>
+    <div class="choices">
+      <button onclick="playGame('rock')">Rock</button>
+      <button onclick="playGame('paper')">Paper</button>
+      <button onclick="playGame('scissors')">Scissors</button>
+    </div>
+    <div class="result" id="result">Choose your move!</div>
+  </div>
+
+  <script>
+    let userScore = 0;
+    let computerScore = 0;
+
+    const userScoreSpan = document.getElementById('user-score');
+    const computerScoreSpan = document.getElementById('computer-score');
+    const resultDiv = document.getElementById('result');
+
+    function playGame(userChoice) {
+      const computerChoice = getComputerChoice();
+      const result = getResult(userChoice, computerChoice);
+
+      displayResult(result, computerChoice);
+      updateScore(result);
+    }
+
+    function getComputerChoice() {
+      const choices = ['rock', 'paper', 'scissors'];
+      const randomIndex = Math.floor(Math.random() * 3);
+      return choices[randomIndex];
+    }
+
+    function getResult(userChoice, computerChoice) {
+      if (userChoice === computerChoice) {
+        return 'draw';
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        return 'win';
+      } else {
+        return 'lose';
+      }
+    }
+
+    function displayResult(result, computerChoice) {
+      resultDiv.innerHTML = `You ${result}! Computer chose ${computerChoice}.`;
+    }
+
+    function updateScore(result) {
+      if (result === 'win') {
+        userScore++;
+      } else if (result === 'lose') {
+        computerScore++;
+      }
+
+      userScoreSpan.textContent = userScore;
+      computerScoreSpan.textContent = computerScore;
+    }
+  </script>
+</body>
+</html>

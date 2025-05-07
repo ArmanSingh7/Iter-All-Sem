@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphical</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>
+     </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: coral;">Graphical representation of Weather</h1>
+        <div class="col-md-6">
+            <h2>Bar chart - Representation</h2>
+            <canvas id="temperatureChart" width="400" height="200"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h2>Pie Chart - Representation</h2>
+            <canvas id="precipitationChart" width="400" height="200"></canvas>
+        </div>
+
+    </div>
+    <script>
+        //data
+        const days=['Mon','Tue','Wed','Thu','Fri','Sat'];
+        const temperatureData = [16, 18, 22, 11, 26, 19, 27];
+    const precipitationData = [10, 5, 15, 8, 12, 7, 10];
+
+    // Bar Chart
+    const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
+    const temperatureChart = new Chart(temperatureCtx, {
+        type: 'bar',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Temperature (°C)',
+                data: temperatureData,
+                backgroundColor: 'teal',
+                borderColor: 'grey',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    //
+     // Pie Chart
+     const precipitationCtx = document.getElementById('precipitationChart').getContext('2d');
+    const precipitationChart = new Chart(precipitationCtx, {
+        type: 'pie',
+        data: {
+            labels: days,
+            datasets: [{
+                label: 'Precipitation (%)',
+                data: precipitationData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(201, 203, 207, 1)'
+                ],
+                borderWidth: 1
+            }]
+        }
+    });
+
+    </script>
+</body>
+</html>

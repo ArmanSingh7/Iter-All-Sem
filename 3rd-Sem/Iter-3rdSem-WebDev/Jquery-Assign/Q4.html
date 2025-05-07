@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A3Q4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: darkturquoise;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    #popup {
+      background-color: rgb(129, 85, 211);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    #closeBtn {
+      cursor: pointer;
+      float: right;
+      font-size: 20px;
+    }
+  </style>
+  <!-- Include jQuery using the script tag with src attribute -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<h2 style="color: rgb(240, 113, 66);">Showing popup box without using JavaScript alert</h2>
+  <!-- Button to trigger the popup -->
+  <button id="showPopupBtn">Show Popup</button>
+
+  <!-- Popup overlay -->
+  <div id="overlay">
+    <!-- Popup content -->
+    <div id="popup">
+      <span id="closeBtn">&times;</span>
+      <p>This is a custom popup box.</p>
+    </div>
+  </div>
+
+  <!-- jQuery code for showing and hiding the popup -->
+  <script>
+    $(document).ready(function () {
+      // Show popup on button click
+      $("#showPopupBtn").click(function () {
+        $("#overlay").fadeIn();
+      });
+
+      // Hide popup on close button click
+      $("#closeBtn").click(function () {
+        $("#overlay").fadeOut();
+      });
+    });
+  </script>
+</body>
+</html>

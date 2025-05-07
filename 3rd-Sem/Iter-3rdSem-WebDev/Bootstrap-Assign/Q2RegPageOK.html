@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Q2</title>
+      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+	<style>
+	.container{
+		/* border: 2px solid black; */
+        background-color: chartreuse;	
+        padding: 5px;	
+	}
+    .bg-primary{
+        width: 100%;
+        padding: 2px;
+    }
+	
+   
+	</style>
+<title>Registration page</title>
+</head>
+<body>
+	<div class="container mt-5" >
+        <h2>Registration Form</h2>
+		<div class="ok">
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" class="form-control" required>
+            </div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
+			</div>
+        </div>
+		<button class="bg-primary">Submit</button>
+        
+        </form>
+        <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Warning!!</strong> Don't close without filling the form
+    </div>
+    </div>
+    
+
+    </div>
+</body>
+</html>

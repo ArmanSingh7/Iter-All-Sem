@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>About Us</title>
+</head>
+<body>
+  <header>
+    <h1>Gameon Studious</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="content">
+      <h2>About Our Team</h2>
+      <div class="team-member" data-member="1">
+        <h3>John Doe <span class="toggle-details">+</span></h3>
+        <div class="details">
+          <p>Position: Web Developer</p>
+          <p>John is a talented web developer with a passion for creating user-friendly and innovative websites.</p>
+        </div>
+      </div>
+
+      <div class="team-member" data-member="2">
+        <h3>Jane Smith <span class="toggle-details">+</span></h3>
+        <div class="details">
+          <p>Position: UX Designer</p>
+          <p>Jane specializes in crafting delightful user experiences and ensuring a seamless interaction between users and products.</p>
+        </div>
+      </div>
+
+      <!-- Add more team members as needed -->
+
+      <div class="about-details">
+        <h3>Our Mission</h3>
+        <p>We are dedicated to providing high-quality services and creating a positive impact through our innovative solutions.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    $(document).ready(function() {
+  // Hover states for all interactive elements
+  $('button, .team-member h3, .toggle-details').hover(
+    function() {
+      $(this).css('background-color', '#ddd');
+    },
+    function() {
+      $(this).css('background-color', '');
+    }
+  );
+
+  // Toggle team member details on the About page
+  $('.team-member h3, .toggle-details').click(function() {
+    const details = $(this).closest('.team-member').find('.details');
+    details.slideToggle();
+  });
+
+  // Validate and submit the contact form
+  $('#submitForm').click(function() {
+    const name = $('#name').val();
+    const email = $('#email').val();
+    const message = $('#message').val();
+
+    // Reset previous error messages
+    $('#errorMessage').text('');
+
+    // Validate fields
+    if (name === '' || email === '' || message === '') {
+      $('#errorMessage').text('This field is required.');
+    } else if (!isValidEmail(email)) {
+      $('#errorMessage').text('Please use a valid email address.');
+    } else {
+      // Form submission logic (you can handle form submission here)
+      alert('Form submitted successfully!');
+    }
+  });
+
+  function isValidEmail(email) {
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A3Q3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: gold;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+  </style>
+  <!-- Include jQuery using the script tag with src attribute -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <h2>
+    The blur event occurs when the
+following  Field1 loses focus.
+
+
+  </h2>
+
+  <form>
+    <input id="field1" type="text" value="Field 1">
+    <input id="field2" type="text" value="Field 2">
+  </form>
+
+  <!-- jQuery code for attaching a function to the blur event -->
+  <script>
+    $(document).ready(function () {
+      // Attach function to the blur event of input with id "field1"
+      $("#field1").blur(function () {
+        // Your custom function here
+        alert("Field 1 lost focus!");
+        // You can replace the alert with any other action you want.
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your styles for optimal layout and hover states here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+    <title>Sign Up Form</title>
+</head>
+<body>
+
+<form id="signupForm" onsubmit="return validateForm()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password">
+
+    <input type="submit" value="Submit">
+
+    <div id="errorMessages" class="error"></div>
+</form>
+
+<script>
+    function validateForm() {
+        var email = document.forms["signupForm"]["email"].value;
+        var password = document.forms["signupForm"]["password"].value;
+        var errorMessages = document.getElementById("errorMessages");
+        errorMessages.innerHTML = ""; // Clear previous error messages
+
+        if (email == "" || password == "") {
+            errorMessages.innerHTML += "<p>All fields are required</p>";
+            return false;
+        }
+
+        // Email format validation using a simple regular expression
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errorMessages.innerHTML += "<p>Invalid email address</p>";
+            return false;
+        }
+
+        // Additional validation logic can be added here
+
+        return true; // Form is valid, allow submission
+    }
+</script>
+
+</body>
+</html>

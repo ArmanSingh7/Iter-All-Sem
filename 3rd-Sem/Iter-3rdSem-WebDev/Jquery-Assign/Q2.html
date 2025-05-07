@@ -1,0 +1,40 @@
+
+<html>
+<head>
+   
+    <title>A3Q2</title>
+</head>
+<style>
+    body{
+        background-color: darkorange;
+    }
+    p{
+        font-size: 20px;
+    }
+    div{
+        font-size: 22px;
+    }
+</style>
+<body>
+    <body>
+        <h2>
+            Double click and Single click
+        </h2>
+        <p>Click me!</p>
+        
+        <div id="para">Double click me!</div>
+        
+        <script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        <script>
+             $("p").click(function(){
+               alert("one time clicked");
+             });
+            $("#para").dblclick(function(){
+               alert("double times clicked");
+            });
+
+        </script>
+</body>
+</html>

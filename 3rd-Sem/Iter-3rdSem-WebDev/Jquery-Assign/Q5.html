@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A3Q5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: rgb(0, 255, 110);
+    }
+    .example-container {
+      margin-bottom: 2px;
+    }
+    .example-div {
+      display: none;
+      width: 200px;
+      height: 50px;
+      background-color: rgb(229, 236, 39);
+      border: 3px solid #f52424;
+      margin-bottom: 5px;
+      text-align: center;
+      padding: 5px;
+    }
+    .animated-div {
+      width: 50px;
+      height: 50px;
+      background-color: gold;
+      border: 3px solid #ef2121;
+      margin-bottom: 10px;
+    }
+    .fade-div {
+      display: none;
+      width: 200px;
+      height: 30px;
+      background-color: gold;
+      border: 3px solid #f52121;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    .hide-show-div {
+      width: 200px;
+      height: 30px;
+      background-color: gold;
+      border: 1px solid #f01414;
+      margin-bottom: 10px;
+      text-align: center;
+      
+    }
+    .hover-div {
+      width: 150px;
+      height: 50px;
+      background-color: gold;
+      border: 3px solid #e52020;
+      text-align: center;
+    
+      
+    }
+    .link {
+      color: rgb(255, 196, 0);
+      text-decoration: underline;
+      cursor: pointer;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .html-div {
+      background-color: gold;
+      border: 3px solid #f51919;
+      padding: 10px;
+      
+    }
+   
+    #slideDownBtn,#animateBtn,#fadeInBtn,#hideShowBtn,#hoverBtn,#dblClickBtn,#attrBtn,#htmlBtn{
+      padding: 11px;
+      background-color: coral;
+    }
+    
+  </style>
+  <!-- Include jQuery using the script tag with src attribute -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <h2>Jquery Different Methods </h2>
+
+  <div class="example-container">
+    <button id="slideDownBtn">Slide Down</button>
+    <div class="example-div" id="exampleDiv">This content appears after clicking slide down button..</div>
+  </div>
+
+  <div class="example-container">
+    <button id="animateBtn">Animate</button>
+    <div class="animated-div" id="animateDiv"></div>
+  </div>
+
+  <div class="example-container">
+    <button id="fadeInBtn">Fade In</button>
+    <div class="fade-div" id="fadeInDiv">FadeIn Content</div>
+  </div>
+
+  <div class="example-container">
+    <button id="hideShowBtn">Hide/Show</button>
+    <div class="hide-show-div" id="hideShowDiv">Hide/Show Content</div>
+  </div>
+
+  <div class="example-container">
+    <button id="hoverBtn">Mouse Enter/Leave</button>
+    <div class="hover-div" id="mouseEnterDiv">MouseEnter/Leave</div>
+  </div>
+
+  <div class="example-container">
+    <button id="dblClickBtn">Double Click</button>
+    
+
+  <div class="example-container">
+    <button id="attrBtn">Change Link</button>
+    <a class="link" id="exampleLink" href="https://www.example.com" target="_blank"><b>Click me</b></a>
+  </div>
+
+  <div class="example-container">
+    <button id="htmlBtn">Change HTML</button>
+    <div class="html-div" id="htmlDiv"><p>Initial HTML Content</p></div>
+  </div>
+
+  <!-- jQuery code for using the mentioned methods -->
+  <script>
+    $(document).ready(function () {
+      // SlideDown Example
+      $("#slideDownBtn").click(function () {
+        $("#exampleDiv").slideDown(1000);
+      });
+
+      // Animate Example
+      $("#animateBtn").click(function () {
+        $("#animateDiv").animate({
+          width: "25px",
+          height: "22px",
+          opacity: 0.5
+        }, 1000);
+      });
+
+      // FadeIn Example
+      $("#fadeInBtn").click(function () {
+        $("#fadeInDiv").fadeIn(1000);
+      });
+
+      // Hide/Show Example
+      $("#hideShowBtn").click(function () {
+        $("#hideShowDiv").toggle(1000);
+      });
+
+      // MouseEnter/MouseLeave Example
+      $("#hoverBtn").click(function () {
+        $("#mouseEnterDiv").mouseenter(function () {
+          $(this).css("background-color", "lightblue");
+        }).mouseleave(function () {
+          $(this).css("background-color", "#f0f0f0");
+        });
+      });
+
+      // Double Click Example
+      $("#dblClickBtn").dblclick(function () {
+        alert("Double Clicked!");
+      });
+
+      // attr() Example
+      $("#attrBtn").click(function () {
+        $("#exampleLink").attr("href", "https://www.newlink.com");
+      });
+
+      // html() Example
+      $("#htmlBtn").click(function () {
+        $("#htmlDiv").html("<p>Updated HTML Content</p>");
+      });
+    });
+  </script>
+</body>
+</html>

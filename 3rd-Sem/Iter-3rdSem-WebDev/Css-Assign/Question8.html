@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question-8-Form</title>
+    <style>
+        body 
+        {
+            font-family: Futura;
+            background-color:rgb(27, 241, 205);
+            padding: 20px;
+        }
+        
+        .form-container 
+        {
+            background-color:rgb(137, 43, 236);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px black;
+            max-width: 400px;
+            margin: 10%;
+        }       
+
+        .form-label 
+        {
+            display: block;
+            margin-bottom: 5px;
+            color: rgb(45, 238, 24);
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            color: burlywood;
+            
+        }
+        .form-select
+        {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            color: blueviolet;
+            font-weight: bold;
+        }
+        .button 
+        {
+            background-color:rgb(80, 244, 47);
+            color: rgb(250, 55, 6);
+            text-align:center;
+            border: black;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor:pointer;
+            text-align: center;
+            margin:10px;
+            width: 90%;            
+        }
+        .button:hover
+        {
+            background-color: blue;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 style="text-align: center; color: gold;">Student Info</h2>
+        <form>
+            <div class="form-group">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="regd_no" class="form-label">Regd No. :</label>
+                <input type="regd_no" id="regd_no" class="form-input" placeholder="Your Regd No." required>
+            </div>
+            <div class="form-group">
+                <label for="subject" class="form-label">Branch:</label>
+                <select id="subject" class="form-select" placeholder="Branch" required>
+                    <option value="cse">CSE</option>
+                    <option value="csit">CSIT</option>
+                    <option value="ece">ECE</option>
+                </select></div>
+            <div class="form-grp">
+                <label for="subject" class="form-label">Gender</label>
+                <input id="setD_male" type="radio" name="setD_gender">
+                <label for="setD_male">Male</label>
+            <input id="setD_female" type="radio" name="setD_gender">
+                <label for="setD_female">Female</label>
+            </div>            
+            <button type="submit" class="button" style="text-align: center;" >Submit</button>
+            
+        </form>
+    </div>
+</body>
+</html>

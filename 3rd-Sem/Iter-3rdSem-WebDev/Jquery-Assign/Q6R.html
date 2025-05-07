@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Manipulation</title>
+  <style>
+    body {
+      background-color: greenyellow;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 3px solid #da3c3c;
+      text-align: left;
+      padding: 8px;
+    }
+    button {
+      margin-bottom: 10px;
+      background-color: rgb(137, 137, 232);
+    }
+  </style>
+  <!-- Include jQuery using the script tag with src attribute -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <!-- Table with a button to add rows -->
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example row -->
+      <tr id="1">
+        <td>1</td>
+        <td>John Doe</td>
+        <td>25</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Button to add rows to the table -->
+  <button id="addRowBtn">Add Row</button>
+
+  <hr>
+
+  <!-- Text box and button to remove elements by ID -->
+  <label for="removeElement">Enter ID to Remove:</label>
+  <input type="text" id="removeElement">
+  <button id="removeElementBtn">Remove Element</button>
+
+  <!-- jQuery code for adding rows and removing elements -->
+  <script>
+    // Use jQuery click function for document ready
+    $(document).ready(function () {
+      // Add row to the table on button click
+      $("#addRowBtn").click(function () {
+        // Example data, replace with your own logic to get data
+        let rowData = {
+          id: "2",
+          name: "Jane Doe",
+          age: "30"
+        };
+
+        // Create a new row and append it to the table
+        let newRow = $("<tr ><td>" + rowData.id + "</td><td>" + rowData.name + "</td><td>" + rowData.age + "</td></tr>");
+        $("#myTable tbody").append(newRow);
+      });
+
+      // Remove elements by ID on button click
+      $("#removeElementBtn").click(function () {
+        let idToRemove = $("#removeElement").val();
+
+        // Remove elements with the specified ID
+        $("#" + idToRemove).remove();
+      });
+    });
+  </script>
+</body>
+</html>

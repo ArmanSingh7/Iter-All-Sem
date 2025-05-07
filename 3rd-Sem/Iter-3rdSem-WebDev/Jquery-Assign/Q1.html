@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A3Q1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script>
+        $(document).ready(function(){
+    $("button").click(function(){
+          var count = $("p").length;
+          $(".para").text("There are " + count  + " child element inside the div. ");
+    });
+      });
+      
+    </script> 
+    <style>
+        body{
+            background-color: greenyellow;
+        }
+    </style>       
+    
+</head>
+<body>
+    <h2 style="color: cornflowerblue;">Counting elements using Jquery</h2>
+    <!-- <div id="selected"> -->
+        <p>Cristiano Ronaldo</p>
+        <p>MS Dhoni</p>
+        <p>Sachin Tendulkar</p>
+        <p>Ryan Reynolds</p>
+        <p>John Snow</p>
+    <!-- </div> -->
+    <button>Click me</button>
+    <div class="para"></div>
+</body>
+</html>
